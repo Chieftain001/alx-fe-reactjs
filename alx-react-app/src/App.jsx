@@ -2,13 +2,21 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+
+// Task 1 component
 import WelcomeMessage from './components/WelcomeMessage';
+
+// Task 2 components
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+      {/* Default Vite + React setup */}
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -18,7 +26,10 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+
+      {/* Task 1: WelcomeMessage */}
       <WelcomeMessage />
+
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -30,8 +41,13 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      {/* Task 2: Header, MainContent, Footer */}
+      <Header />
+      <MainContent />
+      <Footer />
     </>
   )
 }
 
-export default App
+export default App;
