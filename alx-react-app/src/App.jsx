@@ -50,9 +50,9 @@ function App() {
 
   {/* Task 3: UserProfile with props */}
   <UserProfile
-    name="Samuel"
+    name="Alice"
     age="25"
-    bio="Loves Anime and Video games"
+    bio="Loves hiking and photography"
   />
     </>
   )
