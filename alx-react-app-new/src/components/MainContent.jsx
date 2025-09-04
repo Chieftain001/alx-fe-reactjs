@@ -1,8 +1,10 @@
 function MainContent() {
   return (
-    <main style={{ padding: '20px', backgroundColor: '#f0f0f0', textAlign: 'center' }}>
-      <h2>Welcome to My Page</h2>
-      <p>Here are some amazing places I love!</p>
+    <main style={{ backgroundColor: '#f4f4f4', padding: '20px', textAlign: 'center' }}>
+      <h2 style={{ color: 'green' }}>Explore Beautiful Cities</h2>
+      <p style={{ fontSize: '18px', margin: '10px 0' }}>
+        Discover the best cities around the world and their unique attractions.
+      </p>
     </main>
   );
 }
