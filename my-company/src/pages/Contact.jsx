@@ -3,22 +3,49 @@ import { useState } from 'react';
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Form submitted! (This demo does not send data anywhere)');
-    setFormData({ name: '', email: '', message: '' });
+    alert(`Form submitted!\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`);
+    setFormData({ name: '', email: '', message: '' }); // reset after submit
   };
 
   return (
     <div style={{ padding: '20px' }}>
       <h1>Contact Us</h1>
       <form onSubmit={handleSubmit}>
-        <input name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" style={{display:'block', margin:'10px 0'}} />
-        <input name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" style={{display:'block', margin:'10px 0'}} />
-        <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" style={{display:'block', margin:'10px 0'}} />
-        <button type="submit" style={{padding:'8px 12px'}}>Send Message</button>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          style={{ display: 'block', margin: '10px 0', padding: '8px', width: '250px' }}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          value={formData.email}
+          onChange={handleChange}
+          style={{ display: 'block', margin: '10px 0', padding: '8px', width: '250px' }}
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          value={formData.message}
+          onChange={handleChange}
+          style={{ display: 'block', margin: '10px 0', padding: '8px', width: '250px', height: '100px' }}
+          required
+        />
+        <button type="submit" style={{ padding: '10px 15px', backgroundColor: 'navy', color: 'white', border: 'none' }}>
+          Send Message
+        </button>
       </form>
     </div>
   );
