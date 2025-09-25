@@ -18,8 +18,8 @@ export default function Search() {
       const users = await searchUsers(username, location, minRepos);
       setResults(users);
     } catch (err) {
-      setError('Something went wrong. Try again.');
-    }
+  setError('Looks like we cant find the user');
+}
     setLoading(false);
   };
 
