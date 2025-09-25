@@ -7,6 +7,7 @@ function App() {
       <Search />
     </div>
   );
+  ["Looks like we cant find the user"]
 }
 
 export default App;
