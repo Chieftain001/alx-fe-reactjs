@@ -1,8 +1,10 @@
+import React from 'react';
+
 function App() {
   return (
-    <div style={{ padding: '20px' }}>
+    <div>
       <h1>GitHub User Search</h1>
-      <p>Setup complete!</p>
+      <p>Starter app is running!</p>
     </div>
   );
 }
