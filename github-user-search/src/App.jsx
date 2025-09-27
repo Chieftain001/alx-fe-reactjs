@@ -10,5 +10,4 @@ function App() {
 }
 
 export default App;
-import Search from './components/Search';
 

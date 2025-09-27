@@ -11,10 +11,6 @@ export const searchUsers = async (username, location, minRepos) => {
   return response.data.items;   // returns an array of matching users
 }
 export async function fetchUserData(username) {
-  const response = await axios.get(`https://api.github.com/users/${username}`);
-  return response.data;
-}
-export async function fetchUserData(username) {
   try {
     const response = await axios.get(`https://api.github.com/users/${username}`);
     return response.data;
