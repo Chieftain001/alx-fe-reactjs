@@ -2,37 +2,39 @@ function UserProfile() {
   return (
     <div
       className="
-        bg-gray-100
-        p-4 sm:p-4 md:p-8        /* ✅ padding: small on phones, bigger on medium+ */
-        max-w-xs sm:max-w-xs md:max-w-sm  /* ✅ width changes with screen */
-        mx-auto my-10 sm:my-16 md:my-20
-        rounded-lg shadow-lg
+        bg-gray-100 
+        p-4 sm:p-4 md:p-8
+        max-w-xs sm:max-w-xs md:max-w-sm 
+        mx-auto my-20 
+        rounded-lg 
+        shadow-lg
+        hover:shadow-xl           /* 🌟 Shadow grows on hover */
+        transition-shadow duration-300 ease-in-out /* Smooth shadow change */
       "
     >
       <img
         src="https://via.placeholder.com/150"
         alt="User"
         className="
-          rounded-full
-          w-24 h-24 sm:w-24 sm:h-24 md:w-36 md:h-36   /* ✅ image scales */
-          mx-auto
+          rounded-full 
+          mx-auto 
+          w-24 h-24 md:w-36 md:h-36 
+          transition-transform duration-300 ease-in-out /* Smooth scaling */
+          hover:scale-110                        /* 🌟 Image zoom on hover */
         "
       />
       <h1
         className="
-          text-lg sm:text-lg md:text-xl   /* ✅ heading size grows */
+          text-lg md:text-xl
           text-blue-800
           my-4
+          transition-colors duration-300 ease-in-out /* Smooth color change */
+          hover:text-blue-500                      /* 🌟 Lighter blue on hover */
         "
       >
         John Doe
       </h1>
-      <p
-        className="
-          text-sm sm:text-sm md:text-base /* ✅ paragraph scales */
-          text-gray-600
-        "
-      >
+      <p className="text-sm md:text-base text-gray-600 text-center">
         Developer at Example Co. Loves to write code and explore new technologies.
       </p>
     </div>
