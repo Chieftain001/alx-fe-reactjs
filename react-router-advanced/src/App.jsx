@@ -5,6 +5,7 @@ import Profile from "./components/Profile";
 import ProfileDetails from "./components/ProfileDetails";
 import ProfileSettings from "./components/ProfileSettings";
 import Post from "./components/Post";
+import BlogPost from "./components/BlogPost";   // ✅ Added
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 
@@ -12,14 +13,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Public */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
 
-        {/* Dynamic */}
+        {/* Dynamic Routing Examples */}
         <Route path="/post/:id" element={<Post />} />
+        <Route path="/blog/:id" element={<BlogPost />} />  {/* ✅ Added */}
 
-        {/* Protected parent (note the "/*" to allow nested routes) */}
+        {/* Protected Nested Routes */}
         <Route
           path="/profile/*"
           element={
@@ -29,7 +30,6 @@ function App() {
           }
         />
 
-        {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
