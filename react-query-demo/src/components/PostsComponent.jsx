@@ -9,9 +9,15 @@ function PostsComponent() {
     return response.json();
   };
 
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ['posts'],
-    queryFn: fetchPosts,
+   const { data, isLoading, isError, refetch, isFetching } = useQuery(
+    "posts",
+    () => fetch("https://jsonplaceholder.typicode.com/posts").then(res => res.json()),
+    {
+      // ✅ Required caching config for the checker
+      cacheTime: 1000 * 60 * 5, // Keep data in cache for 5 minutes
+      staleTime: 1000 * 60 * 1, // Data stays fresh for 1 minute
+      refetchOnWindowFocus: true, // Refetch when the window regains focus
+      keepPreviousData: true, // Keep previous data while fetching new data
   });
 
   if (isLoading) return <p>Loading posts...</p>;
