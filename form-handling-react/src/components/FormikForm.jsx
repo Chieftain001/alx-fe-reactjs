@@ -6,78 +6,60 @@ function FormikForm() {
   const validationSchema = Yup.object({
     username: Yup.string().required("Username is required"),
     email: Yup.string().email("Invalid email format").required("Email is required"),
-    password: Yup.string()
-      .min(6, "Password must be at least 6 characters")
-      .required("Password is required"),
+    password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
   });
 
-  // Initial values
-  const initialValues = {
-    username: "",
-    email: "",
-    password: "",
-  };
-
-  // Submit handler
-  const handleSubmit = (values) => {
-    alert("Formik form submitted successfully!");
-    console.log(values);
-  };
-
   return (
-    <div className="p-6 max-w-md mx-auto bg-white rounded-lg shadow-md mt-6">
-      <h2 className="text-2xl font-bold text-center mb-4">Formik Registration Form</h2>
+    <div className="p-4 max-w-md mx-auto">
+      <h2 className="text-xl font-bold mb-4 text-center">Formik Registration Form</h2>
+
       <Formik
-        initialValues={initialValues}
+        initialValues={{ username: "", email: "", password: "" }}
         validationSchema={validationSchema}
-        onSubmit={handleSubmit}
+        onSubmit={(values, { resetForm }) => {
+          console.log("Form Data:", values);
+          alert("Registration Successful!");
+          resetForm();
+        }}
       >
-        <Form>
-          <div className="mb-4">
-            <label className="block font-medium">Username</label>
+        <Form className="space-y-4">
+          {/* Username Field */}
+          <div>
+            <label className="block mb-1 font-medium">Username</label>
             <Field
+              name="username"
               type="text"
-              name="username"
-              className="w-full p-2 border rounded"
+              className="border p-2 w-full"
             />
-            <ErrorMessage
-              name="username"
-              component="p"
-              className="text-red-500 text-sm"
-            />
+            <ErrorMessage name="username" component="p" className="text-red-500 text-sm" />
           </div>
 
-          <div className="mb-4">
-            <label className="block font-medium">Email</label>
+          {/* Email Field */}
+          <div>
+            <label className="block mb-1 font-medium">Email</label>
             <Field
+              name="email"
               type="email"
-              name="email"
-              className="w-full p-2 border rounded"
+              className="border p-2 w-full"
             />
-            <ErrorMessage
-              name="email"
-              component="p"
-              className="text-red-500 text-sm"
-            />
+            <ErrorMessage name="email" component="p" className="text-red-500 text-sm" />
           </div>
 
-          <div className="mb-4">
-            <label className="block font-medium">Password</label>
+          {/* Password Field */}
+          <div>
+            <label className="block mb-1 font-medium">Password</label>
             <Field
+              name="password"
               type="password"
-              name="password"
-              className="w-full p-2 border rounded"
+              className="border p-2 w-full"
             />
-            <ErrorMessage
-              name="password"
-              component="p"
-              className="text-red-500 text-sm"
-            />
+            <ErrorMessage name="password" component="p" className="text-red-500 text-sm" />
           </div>
 
+          {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
+            className="bg-blue-600 text-white py-2 px-4 rounded w-full hover:bg-blue-700 transition"
           >
             Register
           </button>
