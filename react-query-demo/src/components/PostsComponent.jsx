@@ -15,8 +15,7 @@ function PostsComponent() {
   });
 
   if (isLoading) return <p>Loading posts...</p>;
-  if (error) return <p>Error fetching posts: {error.message}</p>;
-
+  if (isError) return <p>Error fetching data.</p>;
   return (
     <div>
       <button
